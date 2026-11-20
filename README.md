@@ -1,7 +1,7 @@
 # termsnake
 
 A colorful Snake game for your terminal, written in C++17 with no libraries.
-![termsnake demo](demo.gif)
+![termsnake demo](screenshots/demo.gif)
 ## Requirements
 A C++17 compiler and `make`.
 
