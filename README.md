@@ -1,36 +1,54 @@
-# termsnake
+# 🐍 termsnake
 
-A colorful Snake game for your terminal, written in C++17 with no libraries.
+Snake for your terminal. Colored blocks, smooth controls, no libraries, one C++ file.
+
 ![termsnake demo](screenshots/demo.gif)
-## Requirements
-A C++17 compiler and `make`.
-
-- Ubuntu/Debian: `sudo apt install build-essential`
-- macOS: `xcode-select --install`
-- Windows: use WSL (Ubuntu) and follow the Linux steps
-
-Your terminal needs 256-color support and should be at least 60 columns by 22 rows.
 
 ## Play
+
 ```bash
 git clone https://github.com/YOURNAME/termsnake.git
 cd termsnake
 make run
 ```
 
-## Install (optional, then just type `termsnake`)
-```bash
-make install
-```
-This copies the game to `~/.local/bin`. Make sure that folder is on your `PATH`.
-Remove it with `make uninstall`.
+You need a C++17 compiler and `make`:
+
+- **Ubuntu/Debian:** `sudo apt install build-essential`
+- **macOS:** `xcode-select --install`
+- **Windows:** use [WSL](https://learn.microsoft.com/windows/wsl/install) and follow the Ubuntu steps
+
+Your terminal needs 256 colors and at least 56×20 characters.
 
 ## Controls
+
 | Key | Action |
 |---|---|
 | Arrows / WASD | Move |
-| Space or P | Pause |
-| Enter | Play again (after game over) |
-| Q or Esc | Quit |
+| Space | Pause |
+| Enter | Play again |
+| Q / Esc | Quit |
 
-Your best score is saved in `~/.termsnake_highscore`.
+## Install
+
+```bash
+make install     # then run it anywhere with: termsnake
+make uninstall
+```
+
+Make sure `~/.local/bin` is on your `PATH`.
+
+## Features
+
+- The game speeds up as you score
+- Quick key presses are queued, so tight turns work
+- Best score is saved in `~/.termsnake_highscore`
+- Restores your terminal cleanly on exit, even on Ctrl+C
+
+## How it works
+
+Each square is two spaces with a colored background (ANSI escape codes). Keys are read with `termios` and `poll`, and the whole game is in [`src/main.cpp`](src/main.cpp).
+
+## License
+
+MIT
